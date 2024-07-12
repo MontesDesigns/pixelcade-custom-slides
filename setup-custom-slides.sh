@@ -9,7 +9,3 @@ wget -O ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh http
 wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.service https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides.service
 #sudo chmod +x ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh # TO DO need to replace this
 sudo cp ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.service /etc/systemd/system/pixelcade-custom-slides.service
-
-#to do add check if the service is already running
-sudo systemctl start pixelcade-custom-slides.service
-sudo systemctl enable pixelcade-custom-slides.service
