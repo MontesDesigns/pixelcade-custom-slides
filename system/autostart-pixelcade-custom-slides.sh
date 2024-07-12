@@ -2,9 +2,6 @@
 # Number of times to repeat the curl loop
 num_repeats=3
 
-# Delay between each iteration (in seconds)
-delay_seconds=5
-
 # URLs to be cURL'ed in the loop
 urls=(
     "http://pixelcade.local:8080/arcade/stream/user/jodys-arcade-128x32.gif"
@@ -20,18 +17,32 @@ urls=(
     "http://pixelcade.local:8080/arcade/stream/user/montes-128x32.png"
 )
 
-# Function to perform cURL request
+# Function to perform the curl requests
 perform_curl() {
-    local url=$1
-    for ((i=1; i<=$num_repeats; i++)); do
-        echo "Fetching $url (Attempt $i)"
-        curl -sS $url
-        echo
-        sleep $delay_seconds  # Add delay after each iteration
+    for url in "${urls[@]}"
+    do
+        echo "Fetching $url ..."
+        # Attempt to curl the URL with a timeout of 5 seconds
+        curl --max-time 5 "$url"
+        
+        # Check curl exit code
+        if [ $? -eq 0 ]; then
+            echo "Successfully fetched $url"
+        else
+            echo "Failed to fetch $url"
+            # Optionally, add retry logic or handle errors here
+        fi
+        
+        sleep 5  # Pause for 5 seconds before the next request
     done
 }
 
-# Loop through each URL and perform cURL requests
-for url in "${urls[@]}"; do
-    perform_curl "$url"
+# Loop to repeat the curl requests either num_repeats times or until interrupted
+echo "Press [Ctrl+C] to stop..."
+for ((i=1; i<=num_repeats; i++))
+do
+    echo "=== Repeat $i ==="
+    perform_curl
 done
+
+echo "Curl loop completed."
