@@ -5,6 +5,7 @@ INSTALLPATH=$HOME"/"
 
 #Add custom slides file to startup
 echo "${yellow}Adding Custom Slides to Startup via pixelcade-custom-slides.service...${white}"
+cd ${INSTALLPATH}pixelcade/system && rm autostart-pixelcade-custom-slides.sh && rm pixelcade-custom-slides.service
 wget -O ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/autostart-pixelcade-custom-slides.sh
 wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.service https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides.service
 sudo chmod +x ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh # TO DO need to replace this
