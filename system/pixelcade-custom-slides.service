@@ -1,6 +1,6 @@
 [Unit]
 Description=Pixelcade Custom Slides Service
-After=network.target
+After=pixelcade.service
 
 [Service]
 Type=forking
