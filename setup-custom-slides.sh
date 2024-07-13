@@ -25,5 +25,5 @@ cron_job="@reboot ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slid
 # Add the cron job to crontab
 (crontab -l ; echo "$cron_job") | crontab -
 
-echo "Cron job added:"
-echo "reboot pi to test Cron Job"
+echo "Cron job added."
+echo "Reboot pi to start Pixelcade Custom Slides"
