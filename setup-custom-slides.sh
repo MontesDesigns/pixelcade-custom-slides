@@ -18,14 +18,14 @@ echo "${yellow}Done adding Custom Slides to Pixelcade folder...${white}"
 
 # Check if arguments are provided
 if [ $# -ne 2 ]; then
-    echo "Usage: $0 ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh @reboot"
+    echo "Usage: $0 <path_to_script.sh> <cron_schedule>"
     echo "Example: $0 /home/user/myscript.sh '* * * * *'"
     exit 1
 fi
 
 # Assign arguments to variables
-SCRIPT_PATH="$1"
-CRON_SCHEDULE="$2"
+SCRIPT_PATH="${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh"
+CRON_SCHEDULE="$@reboot"
 
 # Add the cron job to the crontab
 (crontab -l ; echo "$CRON_SCHEDULE $SCRIPT_PATH >/dev/null 2>&1") | sort - | uniq - | crontab -
