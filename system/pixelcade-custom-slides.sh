@@ -28,6 +28,6 @@ for ((i=0; i<repeat_count; i++)); do
   done
   echo "Finished displaying marquee URLs list $((i + 1)) of $repeat_count times."
 done
-# Display Pixelcade marquee to indicate completion of list
+# Display Pixelcade marquee to indicate completion of the list
 sleep 5
 curl "http://pixelcade.local:8080/arcade/stream/console/pixelcade.png"
