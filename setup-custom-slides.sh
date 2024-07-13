@@ -16,20 +16,6 @@ wget -O ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh http
 sudo chmod +x ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh
 echo "${yellow}Done adding Custom Slides to Pixelcade folder...${white}"
 
-# Check if arguments are provided
-if [ $# -ne 2 ]; then
-    echo "Usage: $0 <path_to_script.sh> <cron_schedule>"
-    echo "Example: $0 /home/user/myscript.sh '* * * * *'"
-    exit 1
-fi
+#Add task to crontab
+echo "${yellow}Adding schedule task to Crontab...${white}"
 
-# Assign arguments to variables
-SCRIPT_PATH="${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh"
-CRON_SCHEDULE="$@reboot"
-
-# Add the cron job to the crontab
-(crontab -l ; echo "$CRON_SCHEDULE $SCRIPT_PATH >/dev/null 2>&1") | sort - | uniq - | crontab -
-
-echo "Cron job added:"
-echo "$CRON_SCHEDULE $SCRIPT_PATH"
-echo "reboot pi to test Cron Job"
