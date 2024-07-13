@@ -19,3 +19,11 @@ echo "${yellow}Done adding Custom Slides to Pixelcade folder...${white}"
 #Add task to crontab
 echo "${yellow}Adding schedule task to Crontab...${white}"
 
+# Define the cron job to add
+cron_job="@reboot ${INSTALLPATH}pixelcade/system/autostart-pixelcade-custom-slides.sh"
+
+# Add the cron job to crontab
+(crontab -l ; echo "$cron_job") | crontab -
+
+echo "Cron job added:"
+echo "reboot pi to test Cron Job"
