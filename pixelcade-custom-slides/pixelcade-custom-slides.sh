@@ -48,13 +48,19 @@ delay_seconds=$default_delay_seconds
 
 # Process first
 while IFS= read -r line; do
-    # Trim leading and trailing spaces
-    line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 
     # Skip lines starting with #
     if [[ "$line" =~ ^# ]]; then
         continue
     fi
+
+    # Check if the line starts with http:// or https://
+    if [[ "$line" =~ ^https?:// ]]; then
+        urls+=("$line")  # Add URL to the array
+    fi  
+    
+    # Trim leading and trailing spaces
+    line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
     
     # Check for settings: repeat_count
     if [[ "$line" =~ ^repeat_count= ]]; then
@@ -66,11 +72,6 @@ while IFS= read -r line; do
     if [[ "$line" =~ ^delay_seconds= ]]; then
         eval "$line"  # Evaluate the line to set the delay_seconds variable
         continue  # Move to the next line
-    fi
-
-    # Check if the line starts with http:// or https://
-    if [[ "$line" =~ ^https?:// ]]; then
-        urls+=("$line")  # Add URL to the array
     fi
     
 done < "$urls_file"
