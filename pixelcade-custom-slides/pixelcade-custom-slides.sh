@@ -56,7 +56,7 @@ while IFS= read -r line; do
         continue
     fi
         # Skip lines starting with spaces
-    if [[ "$line" =~ ^[[:space:]] ]]; then
+    if [[ "$line" =~ ^\  ]]; then
         continue
     fi
 
