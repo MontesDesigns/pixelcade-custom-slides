@@ -16,11 +16,12 @@ sleep 10
 
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
-    echo "${purple}pixelcade.service is running, continuing with the script."
+    echo "${magenta}pixelcade.service is running, continuing with the script.${white}"
 else
-    echo "pixelcade.service is not running, exiting script."
+    echo "${red}pixelcade.service is not running, exiting script.${white}"
     exit 1  # Exit the script with a non-zero status to indicate failure
 fi
+echo
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
@@ -75,13 +76,13 @@ delay_seconds="${delay_seconds:-$default_delay_seconds}"
 # Loop through the list of URLs
 for ((i=0; i<repeat_count; i++)); do
     for url in "${urls[@]}"; do
-        echo "Curling $url"
+        echo "${green}Sending to Pixelcade $url${white}"
         curl_output=$(curl -sS "$url")  # Perform the curl request (adjust options as needed)
         echo "$curl_output"  # Display curl output
-        echo "Wait $delay_seconds seconds"  # Display specified seconds before the next iteration
+        echo "${yellow}Wait $delay_seconds seconds${white}"  # Display specified seconds before the next iteration
         sleep "$delay_seconds"  # Wait for specified seconds before the next iteration
         echo  # Print a newline for separation between outputs
     done
-    echo "Finished displaying URLs list $((i + 1)) of $repeat_count times."
+    echo "${green}Finished displaying URLs list $((i + 1)) of $repeat_count times.${white}"
     echo
 done
