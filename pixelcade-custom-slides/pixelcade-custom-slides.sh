@@ -12,6 +12,7 @@ reset=`tput sgr0`
 NEWLINE=$'\n'
 
 # Pause for effect
+echo "${yellow}Wait for Pixelcade boot up.${white}"  # Display specified seconds before the next iteration
 sleep 15
 
 # Check if pixelcade.service is running
