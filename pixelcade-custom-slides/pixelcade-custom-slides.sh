@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# INSTALLPATH="/home/pi/"
+INSTALLPATH=$HOME"/"
+
 # File containing list of URLs
-urls_file="pixelcade-custom-slides-settings.txt"
+urls_file="${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt"
 
 # Default values
 default_repeat_count=1
