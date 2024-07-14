@@ -11,6 +11,9 @@ white=`tput setaf 7`
 reset=`tput sgr0`
 NEWLINE=$'\n'
 
+# Pause for effect
+sleep 15
+
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
     echo "${magenta}pixelcade.service is running, continuing with the script.${white}"
@@ -19,9 +22,6 @@ else
     exit 1  # Exit the script with a non-zero status to indicate failure
 fi
 echo
-
-# Pause for effect
-sleep 15
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
