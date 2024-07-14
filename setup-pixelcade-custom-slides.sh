@@ -72,7 +72,7 @@ case $yn in
     [Nn]* )
         echo "Please reboot when you get a chance."  # Notify user to reboot later
         echo "Running Pixelcade Custom Slides"  # Notify user that script is running
-        sudo chmod +x pixelcade-custom-slides.sh && ./pixelcade-custom-slides/pixelcade-custom-slides.sh
+        cd ${INSTALLPATH}pixelcade-custom-slides pixelcade-custom-slides.sh && ./pixelcade-custom-slides.sh
         exit  # Exit the script
         ;;
     * )
