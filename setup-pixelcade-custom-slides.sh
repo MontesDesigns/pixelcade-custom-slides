@@ -18,20 +18,20 @@ INSTALLPATH=$HOME"/"
 echo "${yellow}Adding Custom Slides to Pixelcade folder...${white}"
 
 # Remove the old file if found in the pixelcade/system folder
+echo "${yellow}Remove old file if found in the Pixelcade System folder...${white}"
 cd ${INSTALLPATH}pixelcade/system && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
 
 # Download the Pixelcade Custom Slides shell
+echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade System folder...${white}"
 wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides.sh
 
-# Download the Marquee urls text file
+# Download the Settings text file
+echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to Pixelcade System folder...${white}"
 wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides-settings.txt
 
 # Make sure it has execute permissions
 sudo chmod +x ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh
-echo "${yellow}Done adding Custom Slides to Pixelcade folder...${white}"
-
-# Check to see if task is already listed in crontab
-
+echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade System folder...${white}"
 
 # Add task to crontab
 echo "${yellow}Adding schedule task to Crontab...${white}"
@@ -39,18 +39,22 @@ echo "${yellow}Adding schedule task to Crontab...${white}"
 # Define the cron job to add
 cron_job="@reboot ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh"
 
-# Add the cron job to crontab
-(crontab -l ; echo "$cron_job") | crontab -
-
-echo "${yellow}Cron job added...${white}"
-echo "${yellow}Reboot pi to start Pixelcade Custom Slides...${white}"
+# Check if the cron job already exists in crontab
+if ! crontab -l | grep -q "${cron_job}"; then
+    # Add the cron job to crontab
+    (crontab -l ; echo "$cron_job") | crontab -
+    echo "${yellow}Cron job added.${white}"
+else
+    echo "${yellow}Cron job already exists.${white}"
+fi
 
 # Cleanup this file
 echo "Cleaning Up..."
 cd ${INSTALLPATH}
 rm ${SCRIPTPATH}setup-pixelcade-custom-slides.sh
 
-# Prompt the user for reboot confirmation
+# Prompt the user to reboot pi
+echo "${yellow}Reboot Raspberry Pi to start Pixelcade Custom Slides.${white}"
 read -p "Reboot Now? (y/n): " yn
 
 # Case statement to handle user input
