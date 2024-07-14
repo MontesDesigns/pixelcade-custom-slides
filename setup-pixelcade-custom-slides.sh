@@ -70,6 +70,7 @@ echo
 
 # Prompt the user to reboot pi
 echo "${green}Reboot Raspberry Pi to start Pixelcade Custom Slides.${white}"
+echo
 read -p "Reboot Now? (y/n): " yn
 
 # Case statement to handle user input
@@ -81,6 +82,7 @@ case $yn in
         echo "${blue}Please reboot when you get a chance.${white}"  # Notify user to reboot later
         echo
         echo "${magenta}Running Pixelcade Custom Slides${white}"  # Notify user that script is running
+        echo
         cd ${INSTALLPATH}pixelcade-custom-slides
         sudo chmod +x pixelcade-custom-slides.sh && ./pixelcade-custom-slides.sh
         exit  # Exit the script
