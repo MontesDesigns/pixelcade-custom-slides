@@ -71,4 +71,5 @@ for ((i=0; i<repeat_count; i++)); do
         echo  # Print a newline for separation between outputs
     done
     echo "Finished displaying URLs list $((i + 1)) of $repeat_count times."
+    echo
 done
