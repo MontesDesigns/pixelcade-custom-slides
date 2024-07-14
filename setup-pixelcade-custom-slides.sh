@@ -15,29 +15,33 @@ NEWLINE=$'\n'
 INSTALLPATH=$HOME"/"
 
 # Add custom slides file to startup
-echo "${yellow}Adding Custom Slides to Pixelcade folder...${white}"
+echo "${yellow}Check for Pixelcade Custom Slides folder...${white}"
+if [[ ! -d "${INSTALLPATH}pixelcade-custom-slides" ]]; then #create the folder if it's not there
+echo "${yellow}Adding Pixelcade Custom Slides folder...${white}"
+   mkdir ${INSTALLPATH}pixelcade-custom-slides
+fi
 
-# Remove the old file if found in the pixelcade/system folder
-echo "${yellow}Remove old file if found in the Pixelcade System folder...${white}"
-cd ${INSTALLPATH}pixelcade/system && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
+# Remove the old file if found
+echo "${yellow}Remove old file if found...${white}"
+cd ${INSTALLPATH}pixelcade-custom-slides && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
 
 # Download the Pixelcade Custom Slides shell
 echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade System folder...${white}"
-wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides.sh
+wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides.sh
 
 # Download the Settings text file
 echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to Pixelcade System folder...${white}"
-wget -O ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/system/pixelcade-custom-slides-settings.txt
+wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
 
 # Make sure it has execute permissions
-sudo chmod +x ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh
+sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh
 echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade System folder...${white}"
 
 # Add task to crontab
 echo "${yellow}Adding schedule task to Crontab...${white}"
 
 # Define the cron job to add
-cron_job="@reboot ${INSTALLPATH}pixelcade/system/pixelcade-custom-slides.sh"
+cron_job="@reboot ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh"
 
 # Check if the cron job already exists in crontab
 if ! crontab -l | grep -q "${cron_job}"; then
@@ -61,7 +65,6 @@ read -p "Reboot Now? (y/n): " yn
 case $yn in
     [Yy]* )
         reboot  # Execute the reboot command
-        break   # Exit the loop after rebooting
         ;;
     [Nn]* )
         echo "Please reboot when you get a chance."  # Notify user to reboot later
