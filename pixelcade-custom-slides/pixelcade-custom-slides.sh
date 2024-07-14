@@ -78,11 +78,11 @@ for ((i=0; i<repeat_count; i++)); do
     for url in "${urls[@]}"; do
         echo "${green}Sending to Pixelcade $url${white}"
         curl_output=$(curl -sS "$url")  # Perform the curl request (adjust options as needed)
-        echo "$curl_output"  # Display curl output
+        echo "${white}$curl_output${white}"  # Display curl output
         echo "${yellow}Wait $delay_seconds seconds${white}"  # Display specified seconds before the next iteration
         sleep "$delay_seconds"  # Wait for specified seconds before the next iteration
         echo  # Print a newline for separation between outputs
     done
-    echo "${green}Finished displaying URLs list $((i + 1)) of $repeat_count times.${white}"
+    echo "${green}Finished displaying URLs list ${white}$((i + 1)) of $repeat_count times.${white}"
     echo
 done
