@@ -46,7 +46,7 @@ fi
 repeat_count=$default_repeat_count
 delay_seconds=$default_delay_seconds
 
-# Process settings first
+# Process first
 while IFS= read -r line; do
     # Trim leading and trailing spaces
     line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
@@ -55,11 +55,7 @@ while IFS= read -r line; do
     if [[ "$line" =~ ^# ]]; then
         continue
     fi
-        # Skip lines starting with spaces
-    if [[ "$line" =~ ^\  ]]; then
-        continue
-    fi
-
+    
     # Check for settings: repeat_count
     if [[ "$line" =~ ^repeat_count= ]]; then
         eval "$line"  # Evaluate the line to set the repeat_count variable
@@ -72,8 +68,13 @@ while IFS= read -r line; do
         continue  # Move to the next line
     fi
 
-    # If it's not a setting line, it's assumed to be a URL
+    # Check if the line starts with http://
+    if [[ "$line" =~ ^http:// ]]; then
+    # Use the line to curl the URL
     urls+=("$line")
+        continue
+    fi
+    
 done < "$urls_file"
 
 # Set default values if not overridden in url_file
