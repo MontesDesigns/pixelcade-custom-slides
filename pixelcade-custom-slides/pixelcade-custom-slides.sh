@@ -76,9 +76,9 @@ delay_seconds="${delay_seconds:-$default_delay_seconds}"
 # Loop through the list of URLs
 for ((i=0; i<repeat_count; i++)); do
     for url in "${urls[@]}"; do
-        echo "${green}Sending to Pixelcade $url${white}"
+        echo "${green}Sending to Pixelcade ${white}$url${white}"
         curl_output=$(curl -sS "$url")  # Perform the curl request (adjust options as needed)
-        echo "${white}$curl_output${white}"  # Display curl output
+        echo "$curl_output"  # Display curl output
         echo "${yellow}Wait $delay_seconds seconds${white}"  # Display specified seconds before the next iteration
         sleep "$delay_seconds"  # Wait for specified seconds before the next iteration
         echo  # Print a newline for separation between outputs
