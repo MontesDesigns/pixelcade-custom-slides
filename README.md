@@ -8,4 +8,4 @@ This file contains the URLs for each marquee you want in the slide show, the set
 
 # setup-pixelcade-custom-slides
 Run the following from the command line to install this feature <br>
-``sudo curl -kLO -H "Cache-Control: no-cache" https://github.com/MontesDesigns/pixelcade-custom-slides/raw/main/setup-pixelcade-custom-slides.sh && chmod +x setup-pixelcade-custom-slides.sh && ./setup-pixelcade-custom-slides.sh``
+``curl -kLO -H "Cache-Control: no-cache" https://github.com/MontesDesigns/pixelcade-custom-slides/raw/main/setup-pixelcade-custom-slides.sh && sudo chmod +x setup-pixelcade-custom-slides.sh && ./setup-pixelcade-custom-slides.sh``
