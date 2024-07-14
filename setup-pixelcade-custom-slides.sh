@@ -17,7 +17,7 @@ INSTALLPATH=$HOME"/"
 # Add custom slides file to startup
 echo "${yellow}Check for Pixelcade Custom Slides folder...${white}"
 if [[ ! -d "${INSTALLPATH}pixelcade-custom-slides" ]]; then #create the folder if it's not there
-echo "${yellow}Adding Pixelcade Custom Slides folder...${white}"
+echo "${green}Adding Pixelcade Custom Slides folder...${white}"
    mkdir ${INSTALLPATH}pixelcade-custom-slides
 fi
 
@@ -26,7 +26,7 @@ echo "${yellow}Remove old file if found...${white}"
 cd ${INSTALLPATH}pixelcade-custom-slides && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
 
 # Download the Pixelcade Custom Slides shell
-echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade Custom Slides folder...${white}"
+echo "${green}Downloading the Pixelcade Custom Slides script to Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides.sh
 
 # Make sure it has execute permissions
@@ -38,7 +38,7 @@ wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.t
 
 # Make sure it has execute permissions
 sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
-echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade Custom Slides folder...${white}"
+echo "${green}Done adding Pixelcade Custom Slides to Pixelcade Custom Slides folder...${white}"
 
 # Add task to crontab
 echo "${yellow}Adding schedule task to Crontab...${white}"
@@ -50,18 +50,18 @@ cron_job="@reboot ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.
 if ! crontab -l | grep -q "${cron_job}"; then
     # Add the cron job to crontab
     (crontab -l ; echo "$cron_job") | crontab -
-    echo "${yellow}Cron job added.${white}"
+    echo "${green}Cron job added.${white}"
 else
     echo "${yellow}Cron job already exists.${white}"
 fi
 
 # Cleanup this file
-echo "Cleaning Up..."
+echo "${red}Cleaning Up...${white}"
 cd ${INSTALLPATH}
 rm ${SCRIPTPATH}setup-pixelcade-custom-slides.sh
 
 # Prompt the user to reboot pi
-echo "${yellow}Reboot Raspberry Pi to start Pixelcade Custom Slides.${white}"
+echo "${green}Reboot Raspberry Pi to start Pixelcade Custom Slides.${white}"
 read -p "Reboot Now? (y/n): " yn
 
 # Case statement to handle user input
@@ -70,13 +70,13 @@ case $yn in
         sudo reboot  # Execute the reboot command
         ;;
     [Nn]* )
-        echo "Please reboot when you get a chance."  # Notify user to reboot later
-        echo "Running Pixelcade Custom Slides"  # Notify user that script is running
+        echo "${red}Please reboot when you get a chance.${white}"  # Notify user to reboot later
+        echo "${magenta}Running Pixelcade Custom Slides${white}"  # Notify user that script is running
         cd ${INSTALLPATH}pixelcade-custom-slides
         sudo chmod +x pixelcade-custom-slides.sh && ./pixelcade-custom-slides.sh
         exit  # Exit the script
         ;;
     * )
-        echo "Please answer yes or no."  # Prompt user for correct input
+        echo "${red}Please answer yes or no.${white}"  # Prompt user for correct input
         ;;
 esac
