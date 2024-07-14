@@ -64,7 +64,7 @@ read -p "Reboot Now? (y/n): " yn
 # Case statement to handle user input
 case $yn in
     [Yy]* )
-        reboot  # Execute the reboot command
+        sudo reboot  # Execute the reboot command
         ;;
     [Nn]* )
         echo "Please reboot when you get a chance."  # Notify user to reboot later
