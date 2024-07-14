@@ -1,9 +1,10 @@
 #!/bin/bash
+# Pause for effect
+sleep 10
 
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
     echo "pixelcade.service is running, continuing with the script."
-    sleep 5
 else
     echo "pixelcade.service is not running, exiting script."
     exit 1  # Exit the script with a non-zero status to indicate failure
