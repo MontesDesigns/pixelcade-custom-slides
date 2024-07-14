@@ -7,5 +7,5 @@ After installation, you will need to edit the file called "pixelcade-custom-slid
 This file contains the URLs for each marquee you want in the slide show, the settings for how many times to repeat the list, and the delay time between each marquee changes.
 
 # setup-pixelcade-custom-slides
-Run the following from the command line to install this feature
+Run the following from the command line to install this feature <br>
 ``curl -kLO -H "Cache-Control: no-cache" https://github.com/MontesDesigns/pixelcade-custom-slides/raw/main/setup-pixelcade-custom-slides.sh && chmod +x setup-pixelcade-custom-slides.sh && ./setup-pixelcade-custom-slides.sh``
