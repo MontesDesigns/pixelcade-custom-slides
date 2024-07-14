@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Pause for Pixelcade to boot completely
+sleep 5
+
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
 
