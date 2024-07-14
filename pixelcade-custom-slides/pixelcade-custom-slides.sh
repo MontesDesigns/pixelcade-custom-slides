@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# wait till pixelcade is started
-
+# Check if pixelcade.service is running
+if systemctl is-active --quiet pixelcade.service; then
+    echo "pixelcade.service is running, continuing with the script."
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
@@ -65,3 +66,7 @@ for ((i=0; i<repeat_count; i++)); do
     done
     echo "Finished displaying URLs list $((i + 1)) of $repeat_count times."
 done
+else
+    echo "pixelcade.service is not running, exiting script."
+    exit 0  # Exit the script with a non-zero status to indicate failure
+fi
