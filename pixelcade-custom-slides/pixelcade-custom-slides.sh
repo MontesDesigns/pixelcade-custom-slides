@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Pause for effect
-sleep 10
+# wait till pixelcade is started
+
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
