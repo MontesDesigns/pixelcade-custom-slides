@@ -49,7 +49,7 @@ echo "${yellow}Adding the scheduled task to Crontab...${white}"
 echo
 
 # Define the cron job to add
-cron_job="@reboot sh ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh"
+cron_job="@reboot ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh"
 
 # Check if the cron job already exists in crontab
 if ! crontab -l | grep -q "${cron_job}"; then
