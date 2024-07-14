@@ -26,16 +26,16 @@ echo "${yellow}Remove old file if found...${white}"
 cd ${INSTALLPATH}pixelcade-custom-slides && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
 
 # Download the Pixelcade Custom Slides shell
-echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade System folder...${white}"
+echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides.sh
 
 # Download the Settings text file
-echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to Pixelcade System folder...${white}"
+echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
 
 # Make sure it has execute permissions
 sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh
-echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade System folder...${white}"
+echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade Custom Slides folder...${white}"
 
 # Add task to crontab
 echo "${yellow}Adding schedule task to Crontab...${white}"
