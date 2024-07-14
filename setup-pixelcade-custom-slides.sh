@@ -77,7 +77,7 @@ case $yn in
         sudo reboot  # Execute the reboot command
         ;;
     [Nn]* )
-        echo "${red}Please reboot when you get a chance.${white}"  # Notify user to reboot later
+        echo "${blue}Please reboot when you get a chance.${white}"  # Notify user to reboot later
         echo
         echo "${magenta}Running Pixelcade Custom Slides${white}"  # Notify user that script is running
         cd ${INSTALLPATH}pixelcade-custom-slides
