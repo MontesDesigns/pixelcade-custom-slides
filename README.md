@@ -1,4 +1,7 @@
 # pixelcade-custom-slides
-Adds a custom slides feature to Pixelcade LED running via Raspberry Pi. This also adds an auto-start feature to the bootup of the Raspberry Pi.
+Adds a custom slides feature to Pixelcade LED running via Raspberry Pi. 
+This also adds a crontab task on the Raspberry Pi to start the slides upon bootup.
 
-Before installing you will need to edit the system/autostart-pixelcade-custom-slides.sh file to the marquee you would like at the section committed "# URLs to be cURL'ed in the loop"
+# pixelcade-custom-slides-settings.txt
+After installation you will need to edit the file called "pixelcade-custom-slides-settings.txt" located within the directory "/pixelcade/system/"
+This file contains the URLs for each marquee you want in the slide show, the settings for how many times to repeat the list, and the delay time between each marquee changes.
