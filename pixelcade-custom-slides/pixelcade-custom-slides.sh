@@ -14,6 +14,7 @@ NEWLINE=$'\n'
 # Pause for effect
 echo "${yellow}Wait for Pixelcade boot up.${white}"  # Display specified seconds before the next iteration
 sleep 15
+echo
 
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
