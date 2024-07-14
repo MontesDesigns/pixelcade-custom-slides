@@ -21,7 +21,7 @@ fi
 echo
 
 # Pause for effect
-sleep 20
+sleep 15
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
