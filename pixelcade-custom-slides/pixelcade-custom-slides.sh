@@ -55,6 +55,10 @@ while IFS= read -r line; do
     if [[ "$line" =~ ^# ]]; then
         continue
     fi
+        # Skip lines starting with spaces
+    if [[ "$line" =~ ^[[:space:]] ]]; then
+        continue
+    fi
 
     # Check for settings: repeat_count
     if [[ "$line" =~ ^repeat_count= ]]; then
