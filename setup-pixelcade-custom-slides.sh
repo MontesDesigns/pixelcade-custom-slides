@@ -29,12 +29,15 @@ cd ${INSTALLPATH}pixelcade-custom-slides && rm pixelcade-custom-slides.sh && rm 
 echo "${yellow}Downloading the Pixelcade Custom Slides script to Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides.sh
 
+# Make sure it has execute permissions
+sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh
+
 # Download the Settings text file
 echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
 
 # Make sure it has execute permissions
-sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh
+sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
 echo "${yellow}Done adding Pixelcade Custom Slides to Pixelcade Custom Slides folder...${white}"
 
 # Add task to crontab
@@ -68,6 +71,8 @@ case $yn in
         ;;
     [Nn]* )
         echo "Please reboot when you get a chance."  # Notify user to reboot later
+        echo "Running Pixelcade Custom Slides"  # Notify user that script is running
+        sudo chmod +x pixelcade-custom-slides.sh && ./pixelcade-custom-slides/pixelcade-custom-slides.sh
         exit  # Exit the script
         ;;
     * )
