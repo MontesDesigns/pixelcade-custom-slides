@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Script logic
 black=`tput setaf 0`
 red=`tput setaf 1`
@@ -15,7 +16,7 @@ sleep 10
 
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
-    echo "pixelcade.service is running, continuing with the script."
+    echo "${purple}pixelcade.service is running, continuing with the script."
 else
     echo "pixelcade.service is not running, exiting script."
     exit 1  # Exit the script with a non-zero status to indicate failure
