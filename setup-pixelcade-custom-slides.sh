@@ -15,14 +15,15 @@ NEWLINE=$'\n'
 INSTALLPATH=$HOME"/"
 
 # Add custom slides file to startup
-echo "${yellow}Check for Pixelcade Custom Slides folder...${white}"
+echo "${yellow}Checking for the Pixelcade Custom Slides folder...${white}"
 if [[ ! -d "${INSTALLPATH}pixelcade-custom-slides" ]]; then #create the folder if it's not there
-echo "${green}Adding Pixelcade Custom Slides folder...${white}"
+echo
+echo "${green}Adding the Pixelcade Custom Slides folder...${white}"
    mkdir ${INSTALLPATH}pixelcade-custom-slides
 fi
 
 # Remove the old file if found
-echo "${yellow}Remove old file if found...${white}"
+echo "${red}Remove old files if found...${white}"
 cd ${INSTALLPATH}pixelcade-custom-slides && rm pixelcade-custom-slides.sh && rm pixelcade-custom-slides-settings.txt
 echo
 
@@ -35,16 +36,16 @@ sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides.sh
 echo
 
 # Download the Settings text file
-echo "${yellow}Downloading the Pixelcade Custom Slides Settings text file to the Pixelcade Custom Slides folder...${white}"
+echo "${green}Downloading the Pixelcade Custom Slides Settings text file to the Pixelcade Custom Slides folder...${white}"
 wget -O ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt https://raw.githubusercontent.com/MontesDesigns/pixelcade-custom-slides/main/pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
 
 # Make sure it has execute permissions
 sudo chmod +x ${INSTALLPATH}pixelcade-custom-slides/pixelcade-custom-slides-settings.txt
-echo "${green}Done adding Pixelcade Custom Slides to Pixelcade Custom Slides folder...${white}"
+echo "${green}Done adding Pixelcade Custom Slides to the Pixelcade Custom Slides folder...${white}"
 echo
 
 # Add task to crontab
-echo "${yellow}Adding schedule task to Crontab...${white}"
+echo "${yellow}Adding the scheduled task to Crontab...${white}"
 echo
 
 # Define the cron job to add
@@ -64,7 +65,7 @@ fi
 # Cleanup this file
 echo "${red}Cleaning Up...${white}"
 cd ${INSTALLPATH}
-rm ${SCRIPTPATH}setup-pixelcade-custom-slides.sh+
+rm ${SCRIPTPATH}setup-pixelcade-custom-slides.sh
 echo
 
 # Prompt the user to reboot pi
