@@ -19,11 +19,12 @@ echo
 # Check if pixelcade.service is running
 if systemctl is-active --quiet pixelcade.service; then
     echo "${magenta}pixelcade.service is running, continuing with the script.${white}"
+    echo
 else
     echo "${red}pixelcade.service is not running, exiting script.${white}"
+    echo
     exit 1  # Exit the script with a non-zero status to indicate failure
 fi
-echo
 
 # INSTALLPATH="/home/pi/"
 INSTALLPATH=$HOME"/"
