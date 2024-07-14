@@ -68,11 +68,9 @@ while IFS= read -r line; do
         continue  # Move to the next line
     fi
 
-    # Check if the line starts with http://
-    if [[ "$line" =~ ^http:// ]]; then
-    # Use the line to curl the URL
-    urls+=("$line")
-        continue
+    # Check if the line starts with http:// or https://
+    if [[ "$line" =~ ^https?:// ]]; then
+        urls+=("$line")  # Add URL to the array
     fi
     
 done < "$urls_file"
