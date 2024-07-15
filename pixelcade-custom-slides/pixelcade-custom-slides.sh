@@ -90,6 +90,6 @@ for ((i=0; i<repeat_count; i++)); do
         sleep "$delay_seconds"  # Wait for specified seconds before the next iteration
         echo  # Print a newline for separation between outputs
     done
-    echo "${green}Finished displaying URLs list ${white}$((i + 1)) of $repeat_count times.${white}"
+    echo "${green}Finished displaying URLs list ${white}$((i + 1)) of $repeat_count ${green}times.${white}"
     echo
 done
