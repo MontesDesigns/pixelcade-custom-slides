@@ -1,6 +1,6 @@
 # Settings #
-repeat_count=3 # Default is 1 time
-delay_seconds=5 # Default is 5 seconds between each URL
+repeat_count=1 # Default = 1 number of times URLs list repeats
+delay_seconds=5 # Default = 5 seconds between each URL
 # Settings #
 #
 # Note: Each line that starts with # is excluded from the queue #
