@@ -53,14 +53,14 @@ while IFS= read -r line; do
     if [[ "$line" =~ ^# ]]; then
         continue
     fi
+    
+    # Trim leading and trailing spaces
+    line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 
     # Check if the line starts with http:// or https://
     if [[ "$line" =~ ^https?:// ]]; then
         urls+=("$line")  # Add URL to the array
     fi  
-    
-    # Trim leading and trailing spaces
-    line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
     
     # Check for settings: repeat_count
     if [[ "$line" =~ ^repeat_count= ]]; then
