@@ -1,8 +1,11 @@
-# Settings
+# Settings #
 repeat_count=3 # Default is 1 time
 delay_seconds=5 # Default is 5 seconds between each URL
-# Note: Each line that starts with # is excluded from the queue 
-# List of Marquee URLs
+# Settings #
+#
+# Note: Each line that starts with # is excluded from the queue #
+#
+# List of Marquee URLs #
 http://pixelcade.local:8080/arcade/stream/mame/centiped
 http://pixelcade.local:8080/arcade/stream/mame/milliped
 http://pixelcade.local:8080/arcade/stream/mame/tetris
@@ -12,3 +15,4 @@ http://pixelcade.local:8080/arcade/stream/images/dkngjnrj
 http://pixelcade.local:8080/arcade/stream/mame/galaga
 http://pixelcade.local:8080/arcade/stream/mame/1941
 http://pixelcade.local:8080/arcade/stream/console/pixelcade.png
+# End of Marquee URLs List #
